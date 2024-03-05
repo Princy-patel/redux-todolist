@@ -15,7 +15,7 @@ function ShowTasks() {
   const completedTasks = function (id) {
     const removeTask = tasksData.map((data) => {
       if (data.id === id) {
-        return { ...data, complete: true };
+        return { ...data, complete: !data.complete };
       }
       return data;
     });
@@ -50,7 +50,7 @@ function ShowTasks() {
                 key={index}
                 className="flex justify-around w-full p-3 m-2 rounded-lg border border-slate-200 items-center"
               >
-                <span>
+                <span className="basis-1/4 text-center">
                   <input
                     type="checkbox"
                     onChange={selectCheckBox.bind(null, taskData.id)}
@@ -60,15 +60,15 @@ function ShowTasks() {
                 </span>
                 <span
                   className={`${
-                    taskData.complete ? "textGreen" : ""
-                  } w-1/5 break-words`}
+                    taskData.complete ? "text-slate-400" : ""
+                  } w-1/5 break-words basis-1/4 text-center`}
                 >
                   {taskData.tasks}
                 </span>
-                <span className={`${taskData.complete ? "textGreen" : ""}`}>
+                <span className={`${taskData.complete ? "text-slate-400" : ""} basis-1/4 text-center`}>
                   {taskData.time}
                 </span>
-                <span>
+                <span className="basis-1/4 text-center">
                   <button
                     onClick={completedTasks.bind(null, taskData.id)}
                     className="text-white rounded-lg px-3 py-2 buttons"
@@ -76,10 +76,10 @@ function ShowTasks() {
                     {taskData.complete ? "Completed" : "Pending"}
                   </button>
                 </span>
-                <span>
+                <span className="basis-1/4 text-center">
                   <button
                     onClick={deleteTasks.bind(null, taskData.id)}
-                    className="text-white rounded-lg px-3 py-2 buttons"
+                    className="text-white rounded-lg px-3 py-2 basis-1/4 buttons"
                   >
                     Delete Task
                   </button>

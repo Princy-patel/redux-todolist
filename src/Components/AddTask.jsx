@@ -14,18 +14,22 @@ function AddTask() {
   const dispatch = useDispatch();
 
   const submitTasks = function () {
-    const { tasks, time, complete, isChecked } = inputValue;
-    dispatch(
-      addTask({
-        id: nanoid(),
-        tasks,
-        time,
-        complete,
-        isChecked,
-      })
-    );
+    if (inputValue.tasks && inputValue.time) {
+      const { tasks, time, complete, isChecked } = inputValue;
+      dispatch(
+        addTask({
+          id: nanoid(),
+          tasks,
+          time,
+          complete,
+          isChecked,
+        })
+      );
 
-    setInputValue({ tasks: "", time: "" });
+      setInputValue({ tasks: "", time: "" });
+    } else {
+      alert("Please enter valid input");
+    }
   };
   return (
     <>
