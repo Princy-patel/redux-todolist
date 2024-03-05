@@ -24,6 +24,8 @@ function AddTask() {
         isChecked,
       })
     );
+
+    setInputValue({ tasks: "", time: "" });
   };
   return (
     <>
@@ -38,6 +40,7 @@ function AddTask() {
             setInputValue({ ...inputValue, tasks: e.target.value })
           }
           className="text-left p-3 m-3 rounded-lg w-full"
+          value={inputValue.tasks}
         />
 
         <input
@@ -48,14 +51,13 @@ function AddTask() {
             setInputValue({ ...inputValue, time: e.target.value })
           }
           className="text-left p-3 m-3 rounded-lg w-full"
+          value={inputValue.time}
         />
-        <br />
-        <br />
 
         <div className="w-full text-right">
           <button
             onClick={submitTasks}
-            className="border-solid border-2 py-3 font-semibold px-4 rounded-lg button-border"
+            className="px-4 py-3 m-3 font-semibold border-solid border-2 rounded-lg button-border"
           >
             I Got This!
           </button>

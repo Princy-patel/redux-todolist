@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteTask, completedTask, deleteAll } from "../taskSlice";
 
 function ShowTasks() {
-  const [isChecked, setIsChecked] = useState(false);
   const [selected, setSelected] = useState([]);
 
   const tasksData = useSelector((state) => state.tasks.tasks);
@@ -25,7 +24,7 @@ function ShowTasks() {
   };
 
   const selectCheckBox = function (id, e) {
-    setIsChecked(e.target.checked);
+    const isChecked = e.target.checked;
     if (isChecked) {
       setSelected([...selected, id]);
     } else {
