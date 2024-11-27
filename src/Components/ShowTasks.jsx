@@ -65,13 +65,19 @@ function ShowTasks() {
                 >
                   {taskData.tasks}
                 </span>
-                <span className={`${taskData.complete ? "text-slate-400" : ""} basis-1/4 text-center`}>
+                <span
+                  className={`${
+                    taskData.complete ? "text-slate-400" : ""
+                  } basis-1/4 text-center`}
+                >
                   {taskData.time}
                 </span>
                 <span className="basis-1/4 text-center">
                   <button
                     onClick={completedTasks.bind(null, taskData.id)}
-                    className="text-white rounded-lg px-3 py-2 buttons"
+                    className={`text-white rounded-lg px-3 py-2 buttons ${
+                      taskData.complete ? "bg-[#4BB543]" : ""
+                    }`}
                   >
                     {taskData.complete ? "Completed" : "Pending"}
                   </button>

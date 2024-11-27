@@ -1,6 +1,4 @@
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import AddTask from "../Components/AddTask";
-import ShowTasks from "../Components/ShowTasks";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 function Siderbar() {
   return (
